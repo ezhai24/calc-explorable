@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_SVG">
+  </script>
+  <script src="./js/smoothscroll.js"></script>
+  <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/definition.css">
+  <title>Calculus Explorable</title>
+</head>
+<body>
+  <div id="definition" class="page">
+    <h1>The Definition</h1>
+    <h2>Slopes</h2>
+    <div class="flex">
+      <div class="descContainer">
+        <div id="slopestep_1" class="step">
+          Let's start simple. Given two points, can you calculate the slope?
+          <input type="text">
+        </div>
+        <div id="slopestep_2" class="step hidden">
+          <p id="feedback_2"></p> The slope of a line, denoted by \(m\), is given by the formula
+          $$m = \frac{\textrm{change in y}}{\textrm{change in x}} = \frac{y_2 - y_1}{x_2 - x_1}$$
+        </div>
+        <div id="slopestep_3" class="step hidden">
+          Given this defintion, it should be apparent that changing the position of the coordinates 
+          changes the slope. Try moving the points around and watch how the slope changes!
+        </div>
+        <div id="slopestep_4" class="step hidden">
+          Ok. Now let's get a little crazy. We'll reset the points and run a curve through them.
+        </div>
+        <div id="slopestep_5" class="step hidden">
+          Can you calculate the slope between the two points on the curve now?
+          <input type="text">
+        </div>
+        <div id="slopestep_6" class="step hidden">
+          <p id="feedback_6"></p> The slope of the line, is still 2!
+        </div>
+        <div id="slopestep_7" class="step hidden">
+          You can still move the points around too. Try it! You may notice there's a bit of a difference.
+          The points can only move along the curve now. That's because in order for us to  say we're 
+          calculating the slope between two points on the curve, the two points must stay on the curve.
+          Pretty intuitive right?
+        </div>
+        <div id="slopestep_8" class="step hidden">
+          Now try moving the points really reeaaallly close together until they're on top of each other.
+        </div>
+        <div id="slopestep_9" class="step hidden">
+          ... now what? I'll get to that. But first, we need to take a short detour.
+        </div>
+        <button id="nextSlopeStep">Next step</button>
+      </div>
+      <div class="vizContainer">
+        <svg id="slopeGraph"></svg>
+        <div id="slopeFormula" class="hidden">
+          $$m = \frac{9.00-1.00}{5.00-1.00} = 2.00$$
+        </div>
+      </div>
+    </div>
+    <a id="goToLimits" class="hidden" href="#">Next section</a>
+  </div>
+</body>
+
+<script src="//d3js.org/d3.v4.min.js"></script>
+<script src="./js/slopeviz.js"></script>
+<script src="./js/definition.js"></script>
+
+</html>

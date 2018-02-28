@@ -1,0 +1,30 @@
+body {
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.page {
+  height: 100vh;
+}
+
+.flex {
+  display: flex;
+  border: solid 1px black;
+}
+
+.descContainer {
+  height: 75vh;
+  width: 35%;
+  border: solid 1px black;
+}
+
+.vizContainer {
+  flex: 1;
+}
+
+.step {
+  margin-bottom: 10px;
+}
