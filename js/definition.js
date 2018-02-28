@@ -13,13 +13,29 @@ nextSlopeStep.addEventListener("click", () => {
       break;
 
     case 4:
-      const curve = document.getElementById("curve");
-      curve.classList.remove("hidden");
+      // hide formula
       formula.classList.add("hidden");
+      
+      // reset line and endpoints
       resetChart();
+      
+      // show curve
+      const curveElem = document.getElementById("curve");
+      curveElem.classList.remove("hidden");
+      const totalLength = curve.node().getTotalLength();
+      curve
+        .attr("stroke-dasharray", totalLength + " " + totalLength)
+        .attr("stroke-dashoffset", totalLength)
+        .transition()
+          .duration(2000)
+          .ease(d3.easeLinear)
+          .attr("stroke-dashoffset", 0);
+
       break;
     
     case 6:
+      formula.innerHTML = "$$m = \\frac{9.0-1.0}{5.0-1.0} = 2.0$$"
+      MathJax.Hub.Queue(["Typeset",MathJax.Hub]);      
       formula.classList.remove("hidden");
       break;
 
@@ -43,14 +59,14 @@ function resetChart() {
   d3.selectAll(".start")
     .transition()
     .duration(1000)
-    .ease(d3.easeElastic)
+    .ease(d3.easeCircle)
       .attr("cx", xScale(1))
       .attr("cy", yScale(1))
 
   d3.selectAll(".end")
     .transition()
     .duration(1000)
-    .ease(d3.easeElastic)
+    .ease(d3.easeCircle)
       .attr("cx", xScale(5))
       .attr("cy", yScale(9))
 
@@ -58,7 +74,7 @@ function resetChart() {
   d3.selectAll("#line")
     .transition()
     .duration(1000)
-    .ease(d3.easeElastic)
+    .ease(d3.easeCircle)
       .attr("x1", xScale(1))
       .attr("y1", yScale(1))
       .attr("x2", xScale(5))

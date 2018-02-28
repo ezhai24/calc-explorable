@@ -116,11 +116,11 @@ function dragended() {
   d3.select(this).classed("active", false);
 
   // update formula
-  const newY1 = toYCoord(d3.select("#line").attr("y1")).toFixed(2)
-  const newY2 = toYCoord(d3.select("#line").attr("y2")).toFixed(2)
-  const newX1 = toXCoord(d3.select("#line").attr("x1")).toFixed(2)
-  const newX2 = toXCoord(d3.select("#line").attr("x2")).toFixed(2)
-  const slope = ((newY2 - newY1) / (newX2 - newX1)).toFixed(2)
+  const newY1 = toYCoord(d3.select("#line").attr("y1")).toFixed(1)
+  const newY2 = toYCoord(d3.select("#line").attr("y2")).toFixed(1)
+  const newX1 = toXCoord(d3.select("#line").attr("x1")).toFixed(1)
+  const newX2 = toXCoord(d3.select("#line").attr("x2")).toFixed(1)
+  const slope = ((newY2 - newY1) / (newX2 - newX1)).toFixed(1)
 
   const newFormula = "m = \\frac{" + newY2 + "-" + newY1 + "}{" + newX2 + "-" + newX1 + "} = " + slope
   
@@ -141,11 +141,11 @@ const curveScale = d3.line()
   .x(d => xScale(d.x))
   .y(d => yScale(d.y));
 
-// generate curve
-const curve = svg.append("path")
+// define curve
+var curve = svg.append("path")
   .attr("id", "curve")
   .attr("class", "hidden")
-  .attr("d", curveScale(curvePoints));
+  .attr("d", curveScale(curvePoints))
 
 // find point on curve closest to current drag position
 function closestPoint(pathNode, point) {
