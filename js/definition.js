@@ -1,5 +1,4 @@
 // handle next steps
-var currentSlopeStep = 1;
 const nextSlopeStep = document.getElementById("nextSlopeStep");
 nextSlopeStep.addEventListener("click", () => {
   // increment to next step
@@ -27,7 +26,7 @@ nextSlopeStep.addEventListener("click", () => {
         .attr("stroke-dasharray", totalLength + " " + totalLength)
         .attr("stroke-dashoffset", totalLength)
         .transition()
-          .duration(2000)
+          .duration(5000)
           .ease(d3.easeLinear)
           .attr("stroke-dashoffset", 0);
 

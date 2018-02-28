@@ -1,3 +1,5 @@
+var currentSlopeStep = 1;
+
 // ---- THE CHART ---- //
 // define chart dimensions
 const margin = {top: 10, right: 20, bottom: 20, left: 40},
@@ -85,30 +87,31 @@ function dragstarted() {
 }
 
 function dragged(d) {
-  // snap to curve for all steps after 4
-  const step4 = document.getElementById("slopestep_4");
-  if(!step4.classList.contains("hidden")) {
-    var m = d3.mouse(svg.node()),
-      p = closestPoint(curve.node(), m);
+  if(currentSlopeStep == 3 || currentSlopeStep >= 7) {
+    // snap to curve for all steps after 4
+    if(currentSlopeStep > 4) {
+      var m = d3.mouse(svg.node()),
+        p = closestPoint(curve.node(), m);
 
-    d3.event.x = p[0];
-    d3.event.y = p[1];
-  }
+      d3.event.x = p[0];
+      d3.event.y = p[1];
+    }
 
-  // update endpoints
-  d3.select(this)
-    .attr("cx", d.x = d3.event.x)
-    .attr("cy", d.y = d3.event.y);
-  
-  // update line
-  if(d.marker == "start") {
-    d3.select("#line")
-      .attr("x1", lineData => lineData.x1 + d3.event.x)
-      .attr("y1", lineData => lineData.y1 + d3.event.y)
-  } else {
-    d3.select("#line")
-      .attr("x2", lineData => lineData.x2 = d3.event.x)
-      .attr("y2", lineData => lineData.y2 = d3.event.y)
+    // update endpoints
+    d3.select(this)
+      .attr("cx", d.x = d3.event.x)
+      .attr("cy", d.y = d3.event.y);
+    
+    // update line
+    if(d.marker == "start") {
+      d3.select("#line")
+        .attr("x1", lineData => lineData.x1 + d3.event.x)
+        .attr("y1", lineData => lineData.y1 + d3.event.y)
+    } else {
+      d3.select("#line")
+        .attr("x2", lineData => lineData.x2 = d3.event.x)
+        .attr("y2", lineData => lineData.y2 = d3.event.y)
+    }
   }
 }
 
