@@ -21,11 +21,13 @@
       <div class="descContainer">
         <div id="slopestep_1" class="step">
           Let's start simple. Given two points, can you calculate the slope?
-          <input type="text">
+          <input id="answer_1" type="text">
+          <button id="check_1">Check</button>
         </div>
         <div id="slopestep_2" class="step hidden">
           <p id="feedback_2"></p> The slope of a line, denoted by \(m\), is given by the formula
           $$m = \frac{\textrm{change in y}}{\textrm{change in x}} = \frac{y_2 - y_1}{x_2 - x_1}$$
+          So in this case the slope is 2.
         </div>
         <div id="slopestep_3" class="step hidden">
           Given this defintion, it should be apparent that changing the position of the coordinates 
@@ -35,8 +37,9 @@
           Ok. Now let's get a little crazy. We'll reset the points and run a curve through them.
         </div>
         <div id="slopestep_5" class="step hidden">
-          Can you calculate the slope between the two points on the curve now?
-          <input type="text">
+          Can you calculate the slope between the two points on the curve?
+          <input id="answer_5" type="text">
+          <button id="check_5">Check</button>
         </div>
         <div id="slopestep_6" class="step hidden">
           <p id="feedback_6"></p> The slope of the line, is still 2!
@@ -53,7 +56,7 @@
         <div id="slopestep_9" class="step hidden">
           ... looks like we broke the code... but I'll get back to that. First, we need to take a short detour.
         </div>
-        <button id="nextSlopeStep">Next step</button>
+        <button id="nextSlopeStep" class="hidden">Next</button>
       </div>
       <div class="vizContainer">
         <svg id="slopeGraph"></svg>

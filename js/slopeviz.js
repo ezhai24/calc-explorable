@@ -71,7 +71,7 @@ const endpoints = [
 svg.selectAll("circles")
   .data(endpoints)
   .enter().append("circle")
-    .attr("class", d => d.marker)
+    .attr("class", d => "endpoint " + d.marker)
     .attr("cx", d => d.x)
     .attr("cy", d => d.y)
     .attr("r", 5)
