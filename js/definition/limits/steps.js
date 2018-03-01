@@ -5,10 +5,16 @@ nextLimitStep.addEventListener("click", () => {
 
   // handle special cases
   switch(currentLimitStep) {
+    case 2:
+      const limitChart = document.getElementById("limitChart");
+      limitChart.classList.remove("hidden");
+      break;
+
     case 3:
       const nextSection = document.getElementById("goToDef");
       nextLimitStep.classList.add("hidden");
       nextSection.classList.remove("hidden");
+      break;
 
     default:
       break;

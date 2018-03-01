@@ -76,17 +76,12 @@ svg.selectAll("circles")
     .attr("cy", d => d.y)
     .attr("r", 5)
     .call(d3.drag()
-      .on("start", dragstarted)
-      .on("drag", dragged)
-      .on("end", dragended));
+      .on("drag", slopeDrag)
+      .on("end", slopeDragEnd));
 
       
 // ---- DRAGGABLE INTERACTION ---- //
-function dragstarted() {
-  d3.select(this).raise().classed("active", true);
-}
-
-function dragged(d) {
+function slopeDrag(d) {
   if(currentSlopeStep == 3 || currentSlopeStep >= 7) {
     // snap to curve for all steps after 4
     if(currentSlopeStep > 4) {
@@ -115,9 +110,7 @@ function dragged(d) {
   }
 }
 
-function dragended() {
-  d3.select(this).classed("active", false);
-
+function slopeDragEnd() {
   // update formula
   const newY1 = toYCoord(d3.select("#line").attr("y1")).toFixed(1)
   const newY2 = toYCoord(d3.select("#line").attr("y2")).toFixed(1)
