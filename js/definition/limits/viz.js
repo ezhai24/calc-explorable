@@ -37,15 +37,15 @@ const lineSize = 0.125;
 const crossPoints = [
   {
     x1: trackPoints[0].x2 - lineSize,
-    y1: trackPoints[0].y2 + lineSize,
+    y1: trackPoints[0].y2 + lineSize * 1.5,
     x2: trackPoints[0].x2 + lineSize,
-    y2: trackPoints[0].y2 - lineSize
+    y2: trackPoints[0].y2 - lineSize * 1.5
   },
   {
     x1: trackPoints[0].x2 + lineSize,
-    y1: trackPoints[0].y2 + lineSize,
+    y1: trackPoints[0].y2 + lineSize  * 1.5,
     x2: trackPoints[0].x2 - lineSize,
-    y2: trackPoints[0].y2 - lineSize
+    y2: trackPoints[0].y2 - lineSize  * 1.5
   }
 ]
 const cross = limitSvg.selectAll("cross")
