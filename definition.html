@@ -59,6 +59,7 @@
         </div>
         <button id="nextSlopeStep" class="hidden">Next</button>
       </div>
+
       <div class="vizContainer">
         <svg id="slopeGraph"></svg>
         <div id="slopeFormula" class="hidden">
@@ -73,18 +74,44 @@
     <a href="#definition">Previous section</a>
     <h2>Limits</h2>
     <div class="flex">
-      <div id="limitSteps" class="descContainer">
+      <div class="descContainer">
+        <div id="limitstep_1" class="step">
+          There's a lot of complexity and nuance to limits but we're not going to worry about that here. All we 
+          need to understand is the basic idea which is, lucky for you, incredibly simple.
+        </div>
+        <div id="limitstep_2" class="step hidden">
+          To help explain we'll start with just one point this time. Try moving the circle closer to the X.
+        </div>
+        <div id="limitstep_3" class="step hidden">
+          The closer the circle gets to the X, the bluer it gets! We can express this sentiment more formally 
+          by saying "The limit of the color, as the circle approaches the X, is blue" and write it mathematically 
+          like so:
+          $$\lim_{circle \to X} color(circle) = blue$$
+          <i>
+            Note: we write color(circle) because color is a function of the position of the circle. In other 
+            words, the color of the circle depends on it's position.
+          </i>
+          <div class="break"></div>
+          And that's a limit! Limits aren't actually mathematical by nature. They just describe a variable
+          and the value it approaches as some other variable it depends on approaches another value.
+        </div>
+        <button id="nextLimitStep">Next</button>
       </div>
+
       <div class="vizContainer">
         <svg id="limitChart"></svg>
       </div>
     </div>
-    <a href="#">Next section</a>  
+    <a id="goToDef" class="hidden" href="#">Next section</a>  
   </div>
 </body>
 
-<script src="//d3js.org/d3.v4.min.js"></script>
-<script src="./js/slope/viz.js"></script>
-<script src="./js/slope/steps.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script src="./js/definition/slope/viz.js"></script>
+<script src="./js/definition/slope/steps.js"></script>
+
+<script src="./js/definition/limits/viz.js"></script>
+<script src="./js/definition/limits/steps.js"></script>
 
 </html>

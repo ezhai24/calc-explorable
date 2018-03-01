@@ -3,6 +3,10 @@ p {
   display: inline;
 }
 
+.break {
+  height: 5px;
+}
+
 form {
   display: inline;
 }
