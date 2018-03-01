@@ -15,6 +15,7 @@
 </head>
 <body>
   <div id="definition" class="page">
+    <a href="./index.html">Go home</a>
     <h1>The Definition</h1>
     <h2>Slopes</h2>
     <div class="flex">
@@ -65,12 +66,25 @@
         </div>
       </div>
     </div>
-    <a id="goToLimits" class="hidden" href="#">Next section</a>
+    <a id="goToLimits" class="hidden" href="#limits">Next section</a>
+  </div>
+
+  <div id="limits" class="page">
+    <a href="#definition">Previous section</a>
+    <h2>Limits</h2>
+    <div class="flex">
+      <div id="limitSteps" class="descContainer">
+      </div>
+      <div class="vizContainer">
+        <svg id="limitChart"></svg>
+      </div>
+    </div>
+    <a href="#">Next section</a>  
   </div>
 </body>
 
 <script src="//d3js.org/d3.v4.min.js"></script>
-<script src="./js/slopeviz.js"></script>
-<script src="./js/definition.js"></script>
+<script src="./js/slope/viz.js"></script>
+<script src="./js/slope/steps.js"></script>
 
 </html>
