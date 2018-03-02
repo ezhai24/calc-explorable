@@ -11,6 +11,14 @@ function nextStep() {
       nextSlopeStep.classList.remove("hidden");
       break;
 
+    case 3:
+      svg.selectAll(".endpoint")
+        .transition()
+        .duration(1000)
+        .ease(d3.easeLinear)
+          .style("fill", "black");
+      break;
+
     case 4:
       // hide formula
       formula.classList.add("hidden");
@@ -56,7 +64,6 @@ function nextStep() {
         .duration(1000)
         .ease(d3.easeLinear)
           .style("fill", "black");
-
       break;
 
     case 9:
