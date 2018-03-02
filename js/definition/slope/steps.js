@@ -67,11 +67,12 @@ const check1 = document.getElementById("check_1");
 check1.addEventListener("click", () => {
   const answer1 = document.getElementById("answer_1");
   const feedback2 = document.getElementById("feedback_2");
-  if(answer1.value == 2) {
+  if(math.eval(answer1.value) == 2) {
     feedback2.innerHTML = "Yes!"
   } else {
     feedback2.innerHTML = "Not quite!"
   }
+  answer1.disabled = true;
   check1.classList.add("hidden");
   nextStep();
 })
@@ -80,11 +81,12 @@ const check5 = document.getElementById("check_5");
 check5.addEventListener("click", () => {
   const answer5 = document.getElementById("answer_5");
   const feedback6 = document.getElementById("feedback_6");
-  if(answer5.value == 2) {
+  if(math.eval(answer5.value) == 2) {
     feedback6.innerHTML = "Right!"
   } else {
     feedback6.innerHTML = "Trick question!"
   }
+  answer5.disabled = true;
   check5.classList.add("hidden");
   nextStep();
 })

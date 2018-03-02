@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/4.0.0/math.js"></script>
   <script type="text/javascript" async
     src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_SVG">
   </script>
@@ -21,7 +22,7 @@
     <div class="flex">
       <div class="descContainer">
         <div id="slopestep_1" class="step">
-          Let's start simple. Given two points, can you calculate the slope?
+          Let's start simple. Given two points, what is the slope?
           <input id="answer_1" type="text">
           <button id="check_1">Check</button>
         </div>
@@ -36,6 +37,7 @@
         </div>
         <div id="slopestep_4" class="step hidden">
           Okay. Now let's get a little crazy. We'll reset the points and draw a curve through them.
+          I've pinned the points down for now so if you wanted to play with them some more hold tight.
         </div>
         <div id="slopestep_5" class="step hidden">
           Can you calculate the slope between the two points on the curve?
@@ -46,10 +48,10 @@
           <p id="feedback_6"></p> The slope of the line, is still 2!
         </div>
         <div id="slopestep_7" class="step hidden">
-          You can still move the points around too. Try it! You may notice there's a bit of a difference.
-          The points can only move along the curve now. That's because in order for us to  say we're 
-          calculating the slope between two points on the curve, the two points must stay on the curve.
-          Pretty intuitive right?
+          You can still move the points around too (I've unpinned them now). Try it! You may notice there's 
+          a bit of a difference. The points can only move along the curve now. That's because in order for 
+          us to  say we're  calculating the slope between two points on the curve, the two points must stay 
+          on the curve. Pretty intuitive right?
         </div>
         <div id="slopestep_8" class="step hidden">
           Now try moving the points really reeaaallly close together until they're on top of each other.
@@ -78,15 +80,15 @@
     <div class="flex">
       <div class="descContainer">
         <div id="limitstep_1" class="step">
-          There's a lot of complexity and nuance to limits but we're not going to worry about that here. All we 
-          need to understand is the basic idea which is, lucky for you, incredibly simple.
+          There's a lot of complexity and nuance to limits, but we're not going to worry about that here. All we 
+          need to understand is the basic idea which is fairly simple.
         </div>
         <div id="limitstep_2" class="step hidden">
           To help explain we'll start with just one point this time. Try moving the circle closer to the X. 
           What happens?
         </div>
         <div id="limitstep_3" class="step hidden">
-          The closer the circle gets to the X, the bluer it! And once the circle reaches the X, it's completely 
+          The closer the circle gets to the X, the bluer it gets! And once the circle reaches the X, it turns completely 
           blue! We can express this sentiment more formally by saying "The limit of the color, as the circle 
           approaches the X, is blue" and write it mathematically like so:
           $$\lim_{circle \to X} color(circle) = blue$$

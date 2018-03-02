@@ -111,15 +111,20 @@ function slopeDrag(d) {
 }
 
 function slopeDragEnd() {
-  // update formula
+  // get coordinates
   const newY1 = toYCoord(d3.select("#line").attr("y1")).toFixed(1)
   const newY2 = toYCoord(d3.select("#line").attr("y2")).toFixed(1)
   const newX1 = toXCoord(d3.select("#line").attr("x1")).toFixed(1)
   const newX2 = toXCoord(d3.select("#line").attr("x2")).toFixed(1)
-  const slope = ((newY2 - newY1) / (newX2 - newX1)).toFixed(1)
-
-  const newFormula = "m = \\frac{" + newY2 + "-" + newY1 + "}{" + newX2 + "-" + newX1 + "} = " + slope
   
+  // calculate slope
+  var slope = ((newY2 - newY1) / (newX2 - newX1)).toFixed(1)
+  if(isNaN(slope)) {
+    slope = "Error"
+  }
+
+  // update formula
+  const newFormula = "m = \\frac{" + newY2 + "-" + newY1 + "}{" + newX2 + "-" + newX1 + "} = " + slope
   var math = MathJax.Hub.getAllJax("slopeFormula")[0];
   MathJax.Hub.Queue(["Text",math,newFormula]);
 }
