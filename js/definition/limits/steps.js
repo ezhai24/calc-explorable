@@ -10,10 +10,10 @@ nextLimitStep.addEventListener("click", () => {
       limitChart.classList.remove("hidden");
       break;
 
-    case 3:
+    case 4:
       const nextSection = document.getElementById("goToDef");
-      nextLimitStep.classList.add("hidden");
       nextSection.classList.remove("hidden");
+      nextLimitStep.classList.add("hidden");
       break;
 
     default:

@@ -14,7 +14,7 @@
   <title>Calculus Explorable</title>
 </head>
 <body>
-  <div id="definition" class="page">
+  <div id="slope" class="page">
     <a href="./index.html">Go home</a>
     <h1>The Definition</h1>
     <h2>Slopes</h2>
@@ -35,7 +35,7 @@
           changes the slope. Try moving the points around and watch how the slope changes!
         </div>
         <div id="slopestep_4" class="step hidden">
-          Ok. Now let's get a little crazy. We'll reset the points and run a curve through them.
+          Okay. Now let's get a little crazy. We'll reset the points and draw a curve through them.
         </div>
         <div id="slopestep_5" class="step hidden">
           Can you calculate the slope between the two points on the curve?
@@ -55,7 +55,9 @@
           Now try moving the points really reeaaallly close together until they're on top of each other.
         </div>
         <div id="slopestep_9" class="step hidden">
-          ... looks like we broke the code... but I'll get back to that. First, we need to take a short detour.
+          ... looks like we broke the code... When both points have the same coordinates, the slope works 
+          out to be \(\frac{0}{0}\) which is ???? but I'll get back to that later. First, we need to take 
+          a short detour.
         </div>
         <button id="nextSlopeStep" class="hidden">Next</button>
       </div>
@@ -71,7 +73,7 @@
   </div>
 
   <div id="limits" class="page">
-    <a href="#definition">Previous section</a>
+    <a href="#slope">Previous section</a>
     <h2>Limits</h2>
     <div class="flex">
       <div class="descContainer">
@@ -80,18 +82,20 @@
           need to understand is the basic idea which is, lucky for you, incredibly simple.
         </div>
         <div id="limitstep_2" class="step hidden">
-          To help explain we'll start with just one point this time. Try moving the circle closer to the X.
+          To help explain we'll start with just one point this time. Try moving the circle closer to the X. 
+          What happens?
         </div>
         <div id="limitstep_3" class="step hidden">
-          The closer the circle gets to the X, the bluer it gets! We can express this sentiment more formally 
-          by saying "The limit of the color, as the circle approaches the X, is blue" and write it mathematically 
-          like so:
+          The closer the circle gets to the X, the bluer it! And once the circle reaches the X, it's completely 
+          blue! We can express this sentiment more formally by saying "The limit of the color, as the circle 
+          approaches the X, is blue" and write it mathematically like so:
           $$\lim_{circle \to X} color(circle) = blue$$
           <i>
             Note: we write color(circle) because color is a function of the position of the circle. In other 
             words, the color of the circle depends on it's position.
-          </i>
-          <div class="break"></div>
+          </i>       
+        </div>
+        <div id="limitstep_4" class="step hidden">
           And that's a limit! Limits aren't actually mathematical by nature. They just describe a variable
           and the value it approaches as some other variable it depends on approaches another value.
         </div>
@@ -102,7 +106,51 @@
         <svg id="limitChart" class="hidden"></svg>
       </div>
     </div>
-    <a id="goToDef" class="hidden" href="#">Next section</a>  
+    <a id="goToDef" class="hidden" href="#definition">Next section</a>  
+  </div>
+
+  <div id="definition" class="page">
+    <a href="#limits">Previous section</a>
+    <h2>Putting it all together</h2>
+    <div class="flex">
+      <div class="descContainer">
+        <div id="defstep_1" class="step">
+          Alright. Let's get back to that broken code. We still need figure out what the slope of the line 
+          between the two points on the curve are as one point gets reeaaallly close the other point.
+        </div>
+        <div id="defstep_2" class="step hidden">
+          First things first, I've added two vertical lines to help you see the x positions of the points a 
+          little better. You'll notice that as the x positions get closer, the points get closer as well. 
+          Nothing you didn't already know but give a try anyway!
+        </div>
+        <div id="defstep_3" class="step hidden">
+          Can you see where this is going? Now we can rephrase our original question "What is the slope of the
+          line as one point gets reeaaallly close to the other point?" as "What is the limit of the slope of 
+          the line as one point approaches the other?". We can write that out mathematically as:
+          $$\lim_{x_2 \to x_1} \frac{y_2 - y_1}{x_2 - x_1}$$
+        </div>
+        <div id="defstep_4" class="step hidden">
+          Now if we rewrite the limit this time calling \(x_2\) just x, \(x_1\) a, and using function notation...
+          $$\lim_{x \to a} \frac{f(x) - f(a)}{x - a}$$
+          ...viola! We have the definition of a derivative!
+        </div>
+        <div id="defstep_5" class="step hidden">
+          Equivalently, we can let h denote the distance between the two x positions and rewrite the limit as
+          $$\lim_{h \to 0} \frac{f(x) - f(x+h)}{h}$$
+          which is an alternative definition of a derivative.
+        </div>
+        <div id="defstep_6" class="step hidden">
+          So a derivate is really just special slope - a slope at a single point on a curve. And if slopes relate
+          the changes in two variables, then a derivative relates the changes in two variables at a single instant.
+        </div>
+        <button id="nextDefStep">Next</button>
+      </div>
+
+      <div class="vizContainer">
+        <svg id="defGraph"></svg>
+      </div>
+    </div>
+    <!-- <a id="goToDef" class="hidden" href="#">Next section</a>   -->
   </div>
 </body>
 
@@ -113,5 +161,8 @@
 
 <script src="./js/definition/limits/viz.js"></script>
 <script src="./js/definition/limits/steps.js"></script>
+
+<script src="./js/definition/final/viz.js"></script>
+<script src="./js/definition/final/steps.js"></script>
 
 </html>
