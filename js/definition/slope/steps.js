@@ -19,7 +19,7 @@ function nextStep() {
       resetChart();
       
       // draw curve
-      const curveElem = document.getElementById("curve");
+      const curveElem = document.getElementById("slopeCurve");
       curveElem.classList.remove("hidden");
       const totalLength = curve.node().getTotalLength();
       curve

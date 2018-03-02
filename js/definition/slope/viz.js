@@ -10,7 +10,7 @@ const margin = {top: 10, right: 20, bottom: 20, left: 40},
 const svg = d3.select("#slopeGraph")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
-  .append("g")
+.append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 // define scales
@@ -139,8 +139,8 @@ const curveScale = d3.line()
 
 // define curve
 var curve = svg.append("path")
-  .attr("id", "curve")
-  .attr("class", "hidden")
+  .attr("id", "slopeCurve")
+  .attr("class", "curve hidden")
   .attr("d", curveScale(curvePoints))
 
 // find point on curve closest to current drag position

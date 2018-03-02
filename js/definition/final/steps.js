@@ -5,6 +5,16 @@ nextDefStep.addEventListener("click", () => {
 
   // handle special cases
   switch(currentDefStep) {
+    case 2:
+      defSvg.selectAll(".vertLine")
+        .transition()
+        .duration(1000)
+        .ease(d3.easeLinear)
+          .style("opacity", 1)
+  
+
+      break;
+
     case 6:
       // const nextSection = document.getElementById("");
       // nextSection.classList.remove("hidden");

@@ -23,7 +23,7 @@ input {
   right: 20px;
 }
 
-#curve {
+.curve {
   fill: none;
   stroke: black;
 }
