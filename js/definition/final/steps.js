@@ -6,11 +6,20 @@ nextDefStep.addEventListener("click", () => {
   // handle special cases
   switch(currentDefStep) {
     case 2:
+      // show vertical lines
       defSvg.selectAll(".vertLine")
         .transition()
         .duration(1000)
         .ease(d3.easeLinear)
           .style("opacity", 1)
+
+      // darken endpoints
+      defSvg.selectAll(".endpoint")
+        .transition()
+        .duration(1000)
+        .ease(d3.easeLinear)
+          .style("fill", "black")
+
       break;
 
     case 6:

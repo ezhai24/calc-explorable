@@ -39,6 +39,7 @@ defSvg.selectAll("circles")
     .attr("cx", d => d.x)
     .attr("cy", d => d.y)
     .attr("r", 5)
+    .style("fill", "gray")
     .call(d3.drag()
       .on("drag", defDrag));
 

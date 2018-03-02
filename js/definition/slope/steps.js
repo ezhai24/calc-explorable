@@ -30,6 +30,13 @@ function nextStep() {
           .ease(d3.easeLinear)
             .attr("stroke-dashoffset", 0);
 
+      // gray out circle
+      svg.selectAll(".endpoint")
+        .transition()
+        .duration(1000)
+        .ease(d3.easeLinear)
+          .style("fill", "gray");
+
       break;
     
     case 5:
@@ -41,6 +48,15 @@ function nextStep() {
       MathJax.Hub.Queue(["Typeset",MathJax.Hub]);      
       formula.classList.remove("hidden");
       nextSlopeStep.classList.remove("hidden");
+      break;
+
+    case 7:
+      svg.selectAll(".endpoint")
+        .transition()
+        .duration(1000)
+        .ease(d3.easeLinear)
+          .style("fill", "black");
+
       break;
 
     case 9:
