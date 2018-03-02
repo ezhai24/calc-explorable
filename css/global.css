@@ -6,6 +6,11 @@ body {
   display: none;
 }
 
+.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
 .page {
   height: 100vh;
 }

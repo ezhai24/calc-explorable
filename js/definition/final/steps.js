@@ -11,13 +11,13 @@ nextDefStep.addEventListener("click", () => {
         .duration(1000)
         .ease(d3.easeLinear)
           .style("opacity", 1)
-  
-
       break;
 
     case 6:
-      // const nextSection = document.getElementById("");
-      // nextSection.classList.remove("hidden");
+      const goHome = document.getElementById("goHome");
+      const nextModule = document.getElementById("goToAppl");
+      goHome.classList.remove("hidden");
+      nextModule.classList.remove("hidden");
       nextDefStep.classList.add("hidden");
       break; 
 
