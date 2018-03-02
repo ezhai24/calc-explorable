@@ -93,6 +93,9 @@ check5.addEventListener("click", () => {
 
 
 // ---- RESET ---- //
+const slopeReset = document.getElementById("slopeReset");
+slopeReset.addEventListener("click", resetChart)
+
 function resetChart() {
   // reset endpoints
   d3.selectAll(".start")
