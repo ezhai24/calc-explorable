@@ -38,13 +38,13 @@ body {
 a {
   font-size: 18px;
   text-decoration: none;
-  color: #0E38AA;
+  color: #F05961;
 }
 a:hover {
-  color: #6F8AD2;
+  color: #FDACB0;
 }
 a:active {
-  color: #365BC0;
+  color: #FC8086;
 }
 
 .sectionNav {
