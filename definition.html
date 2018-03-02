@@ -10,13 +10,14 @@
     src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_SVG">
   </script>
   <script src="./js/smoothscroll.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">  
   <link rel="stylesheet" href="./css/global.css">
   <link rel="stylesheet" href="./css/definition.css">
   <title>Calculus Explorable</title>
 </head>
 <body>
   <div id="slope" class="page">
-    <a href="./index.html">Go home</a>
+    <a href="./index.html"><i class="fas fa-angle-left"></i> Home</a>
     <h1>The Definition</h1>
     <h2>Slopes</h2>
     <div class="flex">
@@ -37,7 +38,6 @@
         </div>
         <div id="slopestep_4" class="step hidden">
           Okay. Now let's get a little crazy. We'll reset the points and draw a curve through them.
-          I've pinned the points down for now so if you wanted to play with them some more hold tight.
         </div>
         <div id="slopestep_5" class="step hidden">
           Can you calculate the slope between the two points on the curve?
@@ -48,10 +48,10 @@
           <p id="feedback_6"></p> The slope of the line, is still 2!
         </div>
         <div id="slopestep_7" class="step hidden">
-          You can still move the points around too (I've unpinned them now). Try it! You may notice there's 
-          a bit of a difference. The points can only move along the curve now. That's because in order for 
-          us to  say we're  calculating the slope between two points on the curve, the two points must stay 
-          on the curve. Pretty intuitive right?
+          You can still move the points around too. Try it! You may notice there's a bit of a difference. 
+          The points can only move along the curve now. That's because in order for us to  say we're 
+          calculating the slope between two points on the curve, the two points must stay on the curve. 
+          Pretty intuitive right?
         </div>
         <div id="slopestep_8" class="step hidden">
           Now try moving the points really reeaaallly close together until they're on top of each other.
@@ -72,11 +72,13 @@
         </div>
       </div>
     </div>
-    <a id="goToLimits" class="hidden" href="#limits">Next section</a>
+    <a id="goToLimits" class="hidden sectionNav" href="#limits">
+      <i class="fas fa-angle-down sectArrow"></i>
+    </a>
   </div>
 
   <div id="limits" class="page">
-    <a href="#slope">Previous section</a>
+    <a href="#slope"><i class="fas fa-angle-up sectArrow"></i></a>
     <h2>Limits</h2>
     <div class="flex">
       <div class="descContainer">
@@ -109,11 +111,13 @@
         <svg id="limitChart" class="hidden"></svg>
       </div>
     </div>
-    <a id="goToDef" class="hidden" href="#definition">Next section</a>  
+    <a id="goToDef" class="hidden sectionNav" href="#definition">
+      <i class="fas fa-angle-down sectArrow"></i>
+    </a>  
   </div>
 
   <div id="definition" class="page">
-    <a href="#limits">Previous section</a>
+    <a href="#limits"><i class="fas fa-angle-up sectArrow"></i></a>
     <h2>Putting it all together</h2>
     <div class="flex">
       <div class="descContainer">
@@ -127,9 +131,9 @@
           Nothing you didn't already know but give a try anyway!
         </div>
         <div id="defstep_3" class="step hidden">
-          Can you see where this is going? Now we can rephrase our original question "What is the slope of the
-          line as one point gets reeaaallly close to the other point?" as "What is the limit of the slope of 
-          the line as one point approaches the other?". We can write that out mathematically as:
+          Now we can rephrase our original question "What is the slope of the line as one point gets reeaaallly 
+          close to the other point?" as "What is the limit of the slope of the line as one point approaches the 
+          other?". We can write that out mathematically as:
           $$\lim_{x_2 \to x_1} \frac{y_2 - y_1}{x_2 - x_1}$$
         </div>
         <div id="defstep_4" class="step hidden">
@@ -154,8 +158,8 @@
         <button id="defReset">Reset</button>
       </div>
     </div>
-    <a id="goHome" class="hidden" href="./index.html">Go home</a>  
-    <a id="goToAppl" class="hidden disabled" href="#">Go to application module</a>  
+    <a id="goHome" class="hidden sectionNav" href="./index.html"><i class="fas fa-angle-left"></i> Home</a>  
+    <a id="goToAppl" class="hidden disabled sectionNav" href="#">Next module <i class="fas fa-angle-right"></i></a>  
   </div>
 </body>
 

@@ -1,5 +1,6 @@
 body {
   overflow: hidden;
+  font-family: 'PT Sans', sans-serif;
 }
 
 .hidden {
@@ -13,17 +14,17 @@ body {
 
 .page {
   height: 100vh;
+  position: relative;
 }
 
 .flex {
   display: flex;
-  border: solid 1px black;
 }
 
 .descContainer {
   height: 75vh;
   width: 45%;
-  border: solid 1px black;
+  /* border: solid 1px black; */
 }
 
 .vizContainer {
@@ -32,4 +33,25 @@ body {
 
 .step {
   margin-bottom: 10px;
+}
+
+a {
+  font-size: 18px;
+  text-decoration: none;
+  color: #0E38AA;
+}
+a:hover {
+  color: #6F8AD2;
+}
+a:active {
+  color: #365BC0;
+}
+
+.sectionNav {
+  position: absolute;
+  bottom: 10px;
+}
+
+.sectArrow {
+  font-size: 25px;  
 }

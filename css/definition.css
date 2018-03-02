@@ -19,11 +19,15 @@ input {
 
 #slopeFormula {
   position: absolute;
-  top: 150px;
+  top: 155px;
   right: 20px;
 }
 
 .curve {
   fill: none;
   stroke: black;
+}
+
+#goToAppl {
+  margin-left: 90px;
 }
