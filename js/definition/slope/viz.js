@@ -142,6 +142,10 @@ svg.selectAll("circles")
     .attr("r", 5)
     .style("fill", "gray")
     .call(d3.drag()
+      .subject(() => {
+        var t = d3.select(this)
+        return { x: t.x, y: t.y }
+      })
       .on("drag", slopeDrag)
       .on("end", slopeDragEnd));
 

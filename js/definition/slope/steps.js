@@ -35,15 +35,8 @@ function nextStep() {
           .ease(d3.easeLinear)
             .attr("stroke-dashoffset", 0);
 
-      // gray out circle
-      svg.selectAll(".endpoint")
-        .transition()
-        .duration(1000)
-        .ease(d3.easeLinear)
-          .style("fill", "gray");
-
       // reset line and endpoints
-      resetChart();
+      resetChart("gray");
 
       break;
     
@@ -117,9 +110,9 @@ check5.addEventListener("click", () => {
 
 // ---- RESET ---- //
 const slopeReset = document.getElementById("slopeReset");
-slopeReset.addEventListener("click", resetChart)
+slopeReset.addEventListener("click", () => resetChart("#F05961"))
 
-function resetChart() {
+function resetChart(color) {
   // reset endpoints
   svg.selectAll(".start")
     .transition()
@@ -127,6 +120,7 @@ function resetChart() {
     .ease(d3.easeCircle)
       .attr("cx", xScale(1))
       .attr("cy", yScale(1))
+      .style("fill", color)
 
   svg.selectAll(".end")
     .transition()
@@ -134,6 +128,7 @@ function resetChart() {
     .ease(d3.easeCircle)
       .attr("cx", xScale(5))
       .attr("cy", yScale(9))
+      .style("fill", color)
 
   // reset line
   svg.selectAll("#line")
@@ -144,4 +139,9 @@ function resetChart() {
       .attr("y1", yScale(1))
       .attr("x2", xScale(5))
       .attr("y2", yScale(9))
+
+  // reset formula
+  const newFormula = "m = \\frac{9.0-1.0}{4.0-1.0} = 2.0"
+  var math = MathJax.Hub.getAllJax("slopeFormula")[0];
+  MathJax.Hub.Queue(["Text",math,newFormula]);
 }
