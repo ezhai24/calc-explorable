@@ -37,6 +37,10 @@ nextDefStep.addEventListener("click", () => {
   // show step
   const step = document.getElementById(`defstep_${currentDefStep}`);
   step.classList.remove("hidden");
+
+  const stepContainer = document.getElementById("defsteps");
+  console.log(stepContainer)
+  stepContainer.scrollTop = stepContainer.scrollHeight;  
 })
 
 
