@@ -8,14 +8,38 @@
   <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">  
   <script src="./js/smoothscroll.js"></script>
   <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/home.css">
   <title>Calculus Explorable</title>
 </head>
 <body>
-  <div id="intro" class="page">
-    <h1>Derivatives</h1>
-    <p>An introduction to what derivatives are, how they're used, and why they're cool.</p>
-    <a href="./definition.html">Let's get started</a>
+  <div id="homeContainer" class="flex">
+    <div id="intro">
+      <h1>Derivatives</h1>
+      <p>An introduction to what derivatives are, how they're used, and why they're cool.</p>
+      <a id="start" href="./definition.html">Let's get started</a>
+    </div>
+    <div id="menu">
+      <h2>Explore</h2>
+      <p>Got a feel for what you're doing? Jump straight to a section.</p>
+      <a href="./definition.html">
+        <div class="menuItem">
+          <img src="./img/graphic.svg" class="icon">            
+          Definition
+        </div>
+      </a>
+      <a class="disabled" href="">
+        <div class="menuItem disabled-menuItem">
+          <img src="./img/abacus.svg" class="icon disabled-icon"> 
+          Application (Coming Soon)
+        </div>
+      </a>
+      <a class="disabled" href="">
+        <div class="menuItem disabled-menuItem">
+          <img src="./img/book.svg" class="icon disabled-icon"> 
+          Differentiation Rules (Coming Soon)
+        </div>
+      </a>
+    </div>
   </div>
-
 </body>
 </html>

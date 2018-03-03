@@ -11,6 +11,13 @@ body {
   pointer-events: none;
   cursor: default;
 }
+.disabled-icon {
+  opacity: 0.7;
+}
+.disabled-menuItem {
+  color: #F05961;
+  opacity: 0.5;
+}
 
 .page {
   height: 100vh;
@@ -24,7 +31,6 @@ body {
 .descContainer {
   height: 75vh;
   width: 45%;
-  /* border: solid 1px black; */
 }
 
 .vizContainer {
@@ -41,10 +47,7 @@ a {
   color: #F05961;
 }
 a:hover {
-  color: #FDACB0;
-}
-a:active {
-  color: #FC8086;
+  color: #BB1820;
 }
 
 .sectionNav {
