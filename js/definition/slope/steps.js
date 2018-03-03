@@ -16,15 +16,12 @@ function nextStep() {
         .transition()
         .duration(1000)
         .ease(d3.easeLinear)
-          .style("fill", "black");
+          .style("fill", "#F05961");
       break;
 
     case 4:
       // hide formula
       formula.classList.add("hidden");
-      
-      // reset line and endpoints
-      resetChart();
       
       // draw curve
       const curveElem = document.getElementById("slopeCurve");
@@ -45,6 +42,9 @@ function nextStep() {
         .ease(d3.easeLinear)
           .style("fill", "gray");
 
+      // reset line and endpoints
+      resetChart();
+
       break;
     
     case 5:
@@ -63,7 +63,7 @@ function nextStep() {
         .transition()
         .duration(1000)
         .ease(d3.easeLinear)
-          .style("fill", "black");
+          .style("fill", "#F05961");
       break;
 
     case 9:
@@ -121,14 +121,14 @@ slopeReset.addEventListener("click", resetChart)
 
 function resetChart() {
   // reset endpoints
-  d3.selectAll(".start")
+  svg.selectAll(".start")
     .transition()
     .duration(1000)
     .ease(d3.easeCircle)
       .attr("cx", xScale(1))
       .attr("cy", yScale(1))
 
-  d3.selectAll(".end")
+  svg.selectAll(".end")
     .transition()
     .duration(1000)
     .ease(d3.easeCircle)
@@ -136,7 +136,7 @@ function resetChart() {
       .attr("cy", yScale(9))
 
   // reset line
-  d3.selectAll("#line")
+  svg.selectAll("#line")
     .transition()
     .duration(1000)
     .ease(d3.easeCircle)

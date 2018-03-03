@@ -31,18 +31,6 @@ defSvg.selectAll("lines")
     .style("stroke", "black")
     .style("stroke-dasharray", ("5, 3"))
 
-// append endpoints
-defSvg.selectAll("circles")
-  .data(endpoints)
-  .enter().append("circle")
-    .attr("class", d => "endpoint " + d.marker)
-    .attr("cx", d => d.x)
-    .attr("cy", d => d.y)
-    .attr("r", 5)
-    .style("fill", "gray")
-    .call(d3.drag()
-      .on("drag", defDrag));
-
 // append curve
 const defCurve = defSvg.append("path")
   .attr("class", "curve")
@@ -67,6 +55,18 @@ defSvg.selectAll("vertLines")
     .style("stroke-dasharray", ("5, 3"))
     .style("opacity", 0)
 
+// append endpoints
+defSvg.selectAll("circles")
+.data(endpoints)
+.enter().append("circle")
+  .attr("class", d => "endpoint " + d.marker)
+  .attr("cx", d => d.x)
+  .attr("cy", d => d.y)
+  .attr("r", 5)
+  .style("fill", "gray")
+  .call(d3.drag()
+    .on("drag", defDrag));
+    
 
 // ---- DRAGGABLE INTERACTION ---- //
 function defDrag(d) {

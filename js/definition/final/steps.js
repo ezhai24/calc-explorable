@@ -18,7 +18,7 @@ nextDefStep.addEventListener("click", () => {
         .transition()
         .duration(1000)
         .ease(d3.easeLinear)
-          .style("fill", "black")
+          .style("fill", "#F05961")
 
       break;
 

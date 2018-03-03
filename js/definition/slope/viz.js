@@ -41,6 +41,71 @@ svg.append("g")
   .attr("class", "y axis")
   .call(yAxis);
 
+
+// ---- THE CURVE ---- //
+// generate points on curve
+var curvePoints = [];
+for (var i = 0.5; i < 9.5; i += 0.1) {
+  curvePoints.push({x: i, y: 0.5 * Math.pow((i - 3), 3) + 5});
+}
+
+// define scale for curve points
+const curveScale = d3.line()
+  .x(d => xScale(d.x))
+  .y(d => yScale(d.y));
+
+// define curve
+var curve = svg.append("path")
+  .attr("id", "slopeCurve")
+  .attr("class", "curve hidden")
+  .attr("d", curveScale(curvePoints))
+
+// find point on curve closest to current drag position
+function closestPoint(pathNode, point) {
+  var pathLength = pathNode.getTotalLength(),
+      precision = 8,
+      best,
+      bestLength,
+      bestDistance = Infinity;
+
+  // linear scan for coarse approximation
+  for (var scan, scanLength = 0, scanDistance; scanLength <= pathLength; scanLength += precision) {
+    if ((scanDistance = distance2(scan = pathNode.getPointAtLength(scanLength))) < bestDistance) {
+      best = scan, bestLength = scanLength, bestDistance = scanDistance;
+    }
+  }
+
+  // binary search for precise estimate
+  precision /= 2;
+  while (precision > 0.5) {
+    var before,
+        after,
+        beforeLength,
+        afterLength,
+        beforeDistance,
+        afterDistance;
+    if ((beforeLength = bestLength - precision) >= 0 && (beforeDistance = distance2(before = pathNode.getPointAtLength(beforeLength))) < bestDistance) {
+      best = before, bestLength = beforeLength, bestDistance = beforeDistance;
+    } else if ((afterLength = bestLength + precision) <= pathLength && (afterDistance = distance2(after = pathNode.getPointAtLength(afterLength))) < bestDistance) {
+      best = after, bestLength = afterLength, bestDistance = afterDistance;
+    } else {
+      precision /= 2;
+    }
+  }
+
+  best = [best.x, best.y];
+  best.distance = Math.sqrt(bestDistance);
+  return best;
+
+  function distance2(p) {
+    var dx = p.x - point[0],
+        dy = p.y - point[1];
+    return dx * dx + dy * dy;
+  }
+}
+
+
+// ---- SLOPE LINE AND ENDPOINTS ---- //
 // append line to chart
 const line = [{x1:1, y1:1, x2:5, y2:9}]
 svg.selectAll("lines")
@@ -128,67 +193,4 @@ function slopeDragEnd() {
   const newFormula = "m = \\frac{" + newY2 + "-" + newY1 + "}{" + newX2 + "-" + newX1 + "} = " + slope
   var math = MathJax.Hub.getAllJax("slopeFormula")[0];
   MathJax.Hub.Queue(["Text",math,newFormula]);
-}
-
-
-// ---- THE CURVE ---- //
-// generate points on curve
-var curvePoints = [];
-for (var i = 0.5; i < 9.5; i += 0.1) {
-  curvePoints.push({x: i, y: 0.5 * Math.pow((i - 3), 3) + 5});
-}
-
-// define scale for curve points
-const curveScale = d3.line()
-  .x(d => xScale(d.x))
-  .y(d => yScale(d.y));
-
-// define curve
-var curve = svg.append("path")
-  .attr("id", "slopeCurve")
-  .attr("class", "curve hidden")
-  .attr("d", curveScale(curvePoints))
-
-// find point on curve closest to current drag position
-function closestPoint(pathNode, point) {
-  var pathLength = pathNode.getTotalLength(),
-      precision = 8,
-      best,
-      bestLength,
-      bestDistance = Infinity;
-
-  // linear scan for coarse approximation
-  for (var scan, scanLength = 0, scanDistance; scanLength <= pathLength; scanLength += precision) {
-    if ((scanDistance = distance2(scan = pathNode.getPointAtLength(scanLength))) < bestDistance) {
-      best = scan, bestLength = scanLength, bestDistance = scanDistance;
-    }
-  }
-
-  // binary search for precise estimate
-  precision /= 2;
-  while (precision > 0.5) {
-    var before,
-        after,
-        beforeLength,
-        afterLength,
-        beforeDistance,
-        afterDistance;
-    if ((beforeLength = bestLength - precision) >= 0 && (beforeDistance = distance2(before = pathNode.getPointAtLength(beforeLength))) < bestDistance) {
-      best = before, bestLength = beforeLength, bestDistance = beforeDistance;
-    } else if ((afterLength = bestLength + precision) <= pathLength && (afterDistance = distance2(after = pathNode.getPointAtLength(afterLength))) < bestDistance) {
-      best = after, bestLength = afterLength, bestDistance = afterDistance;
-    } else {
-      precision /= 2;
-    }
-  }
-
-  best = [best.x, best.y];
-  best.distance = Math.sqrt(bestDistance);
-  return best;
-
-  function distance2(p) {
-    var dx = p.x - point[0],
-        dy = p.y - point[1];
-    return dx * dx + dy * dy;
-  }
 }
