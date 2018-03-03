@@ -46,15 +46,15 @@ const cross = limitSvg.selectAll("cross")
     .style("stroke", "black")
 
 // add dot
-const blue = [{x: xScale(trackPoints[0].x1), y: yScale(trackPoints[0].y1)}]
-limitSvg.selectAll("blue")
-  .data(blue)
+const trackDot = [{x: xScale(trackPoints[0].x1), y: yScale(trackPoints[0].y1)}]
+limitSvg.selectAll("limitDot")
+  .data(trackDot)
   .enter().append("circle")
     .attr("cx", d => d.x)
     .attr("cy", d => d.y)
     .attr("r", 10)
-    .style("fill", "#F05961")
-    .style("opacity", 0.1)
+    .style("fill", "gray")
+    .style("opacity", 0.2)
     .call(d3.drag()
       .on("drag", limitDrag));
 
@@ -67,13 +67,15 @@ const toOpacity = d3.scaleLinear()
 
 // on drag
 function limitDrag(d) {
-  // restrict drag path to track
-  var limM = d3.mouse(limitSvg.node()),
-    limP = closestPoint(track.node(), limM);
+  if(currentLimitStep > 1) {
+    // restrict drag path to track
+    var limM = d3.mouse(limitSvg.node()),
+      limP = closestPoint(track.node(), limM);
 
-  // update circle
-  d3.select(this)
-    .attr("cx", d.x = limP[0])
-    .attr("cy", d.y = limP[1])
-    .style("opacity", toOpacity(limP[0]));
+    // update circle
+    d3.select(this)
+      .attr("cx", d.x = limP[0])
+      .attr("cy", d.y = limP[1])
+      .style("opacity", toOpacity(limP[0]));
+  }
 }

@@ -6,8 +6,12 @@ nextLimitStep.addEventListener("click", () => {
   // handle special cases
   switch(currentLimitStep) {
     case 2:
-      const limitChart = document.getElementById("limitChart");
-      limitChart.classList.remove("hidden");
+      limitSvg.selectAll("circle")
+        .transition()
+        .duration(1000)
+        .ease(d3.easeLinear)
+          .style("fill", "#F05961");
+
       break;
 
     case 4:
