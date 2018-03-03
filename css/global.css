@@ -3,6 +3,39 @@ body {
   font-family: 'PT Sans', sans-serif;
 }
 
+h1 {
+  margin-top: 15px;
+}
+
+.page {
+  height: 100vh;
+  position: relative;
+}
+
+.flex {
+  display: flex;
+  height: 67%;
+}
+
+.descContainer {
+  width: 45%;
+  overflow-y: auto;
+}
+
+.vizContainer {
+  flex: 1;
+  max-width: 50%;
+}
+
+a {
+  font-size: 18px;
+  text-decoration: none;
+  color: #F05961;
+}
+a:hover {
+  color: #BB1820;
+}
+
 .hidden {
   display: none;
 }
@@ -20,35 +53,8 @@ body {
   opacity: 0.5;
 }
 
-.page {
-  height: 100vh;
-  position: relative;
-}
-
-.flex {
-  display: block;
-}
-
-.descContainer {
-  height: 75vh;
-  width: 45%;
-}
-
-.vizContainer {
-  flex: 1;
-}
-
 .step {
   margin-bottom: 10px;
-}
-
-a {
-  font-size: 18px;
-  text-decoration: none;
-  color: #F05961;
-}
-a:hover {
-  color: #BB1820;
 }
 
 .sectionNav {
@@ -60,14 +66,6 @@ a:hover {
   font-size: 25px;  
 }
 
-
-/* DESKTOP STYLES */
-@media (min-width: 1200px) {
-  body {
-    overflow: hidden;
-  }
-
-  .flex {
-    display: flex;
-  }
+.reset {
+  float: right;
 }

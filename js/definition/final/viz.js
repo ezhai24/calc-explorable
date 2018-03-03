@@ -3,8 +3,6 @@ var currentDefStep = 1;
 // ---- THE CHART ---- //
 // create chart
 const defSvg = d3.select("#defGraph")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
 .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
